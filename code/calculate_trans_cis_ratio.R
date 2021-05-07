@@ -97,10 +97,12 @@ for(i in gene_list$gene_id){
 #write_tsv(npmi_ratio_longgenes %>% drop_na(), file = '../data/cis_trans_ratio_longgenes.tsv.gz')
 
 #plot correlation of replicates:
+#two mice with different genetic background and different age
 npmi_ratio_longgenes %>% 
   ggplot()+
   geom_point(aes(x=trans_cis_ratio_dn_R1, y=trans_cis_ratio_dn_R2))
 
+#two littermates
 npmi_ratio_longgenes %>% 
   ggplot()+
   geom_point(aes(x=trans_cis_ratio_pgn_R1, y=trans_cis_ratio_pgn_R2))
