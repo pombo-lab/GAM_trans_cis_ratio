@@ -2,6 +2,12 @@
 
 library(tidyverse)
 
+#set working directory to the directory code is in, to make sure that files are found
+#for Rstudio:
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+#for command line R:
+#setwd(getSrcDirectory()[1])
 
 #read in list of long genes (GCF_000001635.26_GRCm38.p6_genomic.gtf)
 gene_list <- read_tsv('../data/long_genes.tsv.gz')
