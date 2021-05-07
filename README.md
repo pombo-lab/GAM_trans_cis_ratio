@@ -26,6 +26,8 @@ library(lemon)
 Developed and tested with R version 3.6.0 Planting of a Tree  
 Please get in touch for questions and issues: dominik.szabo at mdc-berlin.de
 
+Sync check
+
 Please check our preprint:  
 __Winick-Ng, W., Kukalev, A., Harabula, I., Zea Redondo, L., Szabo, D. et al.:  
 [Cell-type specialization in the brain is encoded by specific long-range chromatin topologies](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v1)__
