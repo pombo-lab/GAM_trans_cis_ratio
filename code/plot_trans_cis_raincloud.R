@@ -11,7 +11,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 #setwd(getSrcDirectory()[1])
 
 #read in trans-cis ratio per gene
-npmi_ratio_longgenes <- read_tsv('../data/cis_trans_ratio_longgenes.tsv.gz')
+npmi_ratio_longgenes <- read_tsv('../data/trans_cis_ratio_longgenes.tsv.gz')
 #read in melting scores
 melting_scores <- read_tsv('../data/melting_scores.tsv.gz') %>% dplyr::select(gene_id, starts_with('melting_in'))
 npmi_ratio_longgenes_melting_score <- left_join(npmi_ratio_longgenes, melting_scores)
