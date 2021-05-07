@@ -3,6 +3,13 @@
 library(tidyverse)
 library(lemon)
 
+#set working directory to the directory code is in, to make sure that files are found
+#for Rstudio:
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+#for command line R:
+#setwd(getSrcDirectory()[1])
+
 #read in trans-cis ratio per gene
 npmi_ratio_longgenes <- read_tsv('../data/cis_trans_ratio_longgenes.tsv.gz')
 #read in melting scores
