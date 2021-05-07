@@ -1,6 +1,6 @@
 # GAM TRANS-CIS RATIOS
 
-_Calculate trans-cis NPMI ratios from GAM data_
+_Calculation of trans-cis NPMI ratios from GAM data_
 
 [![DOI:10.1101/2020.04.02.020990](http://img.shields.io/badge/DOI-10.1101/2020.04.02.020990-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v1)  
 
@@ -26,7 +26,6 @@ library(lemon)
 Developed and tested with R version 3.6.0 Planting of a Tree  
 Please get in touch for questions and issues: dominik.szabo at mdc-berlin.de
 
-Sync check
 
 Please check our preprint:  
 __Winick-Ng, W., Kukalev, A., Harabula, I., Zea Redondo, L., Szabo, D. et al.:  
