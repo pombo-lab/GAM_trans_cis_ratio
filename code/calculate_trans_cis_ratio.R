@@ -7,18 +7,19 @@ library(tidyverse)
 gene_list <- read_tsv('../data/long_genes.tsv.gz')
 
 #need 13 GB of memory to read in the file. Currently not possible to store data on github
-npmi_long_fourcelltypes <- read_tsv('../output/npmi_esc_dn_pgn_olig_withRepl_wdfcleaned_long.tsv') %>% 
-  dplyr::mutate(A_chrom = factor(A_chrom, levels=str_sort(unique(A_chrom), numeric = TRUE)))
+
+#npmi_long_fourcelltypes <- read_tsv('../output/npmi_esc_dn_pgn_olig_withRepl_wdfcleaned_long.tsv') %>% 
+#  dplyr::mutate(A_chrom = factor(A_chrom, levels=str_sort(unique(A_chrom), numeric = TRUE)))
 
 #per bin: summarise all NPMI values in cis and trans with mean(). Tried median() as well and results are very similar
-npmi_trans_cis_perbin <- npmi_long_fourcelltypes %>% 
-  group_by(A_chrom, A_start, contact_type) %>% 
-  summarise(mean_npmi_esc=mean(npmi_esc, na.rm=T),
-            mean_npmi_pgn_R1=mean(npmi_pgn_R1, na.rm=T),
-            mean_npmi_pgn_R2=mean(npmi_pgn_R2, na.rm=T),
-            mean_npmi_dn_R1=mean(npmi_dn_R1, na.rm=T),
-            mean_npmi_dn_R2=mean(npmi_dn_R2, na.rm=T),
-            mean_npmi_olig=mean(npmi_olig, na.rm=T))
+#npmi_trans_cis_perbin <- npmi_long_fourcelltypes %>% 
+#  group_by(A_chrom, A_start, contact_type) %>% 
+#  summarise(mean_npmi_esc=mean(npmi_esc, na.rm=T),
+#            mean_npmi_pgn_R1=mean(npmi_pgn_R1, na.rm=T),
+#            mean_npmi_pgn_R2=mean(npmi_pgn_R2, na.rm=T),
+#            mean_npmi_dn_R1=mean(npmi_dn_R1, na.rm=T),
+#            mean_npmi_dn_R2=mean(npmi_dn_R2, na.rm=T),
+#            mean_npmi_olig=mean(npmi_olig, na.rm=T))
 
 #read in mean trans and cis npmi values per bin
 npmi_trans_cis_perbin <- read_tsv('../data/npmi_trans_cis_per_bin.tsv.gz') %>% 
