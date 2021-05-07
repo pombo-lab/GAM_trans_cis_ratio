@@ -26,7 +26,6 @@ library(lemon)
 Developed and tested with R version 3.6.0 Planting of a Tree  
 Please get in touch for questions and issues: dominik.szabo at mdc-berlin.de
 
-Sync check
 
 Please check our preprint:  
 __Winick-Ng, W., Kukalev, A., Harabula, I., Zea Redondo, L., Szabo, D. et al.:  
