@@ -13,6 +13,7 @@ Ratio discretization to percentile per chromosome and calculation of median tran
 ### Required packages
 ```r
 library(tidyverse)
+library(ggpubr)
 library(lemon)
 ```
 
