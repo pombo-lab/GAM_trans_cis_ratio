@@ -120,6 +120,7 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
     ylim(c(0,100))+
     ylab('trans-cis ratio [chromosome percentile]')+
     scale_x_discrete(labels=c(median_lines$celltype), expand = c(0.1, 0.1))
+#uncomment for labeling of individual genes. But then the function only works for melting genes  
   #    geom_label_repel(data= melting_genes_tohighlight %>% dplyr::filter(name=='ESC'),aes(x=name, y=value, label=gene_id),  nudge_x = -0.2, segment.size = 0) + 
   #    geom_label_repel(data= melting_genes_tohighlight %>% dplyr::filter(name!='ESC'),aes(x=name, y=value, label=gene_id),  nudge_x = 0.2, segment.size = 0) 
   #a
