@@ -24,9 +24,10 @@ pj <- position_jitterdodge(jitter.width=0.2, seed=9,
                            jitter.height = 0,
                            dodge.width = 0.1)
 
-plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2')){
+plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'), melting_status=TRUE){
   if(celltype == 'OLG'){
-    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_OLG == TRUE) # select all melting genes
+    color_brain <- if_else(isTRUE(melting_status),'#800080', 'grey70')
+    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_OLG == melting_status) # select all melting genes
     melting_genes_long <- melting_genes %>% pivot_longer(cols=c(trans_cis_ratio_esc, trans_cis_ratio_olig)) %>% #for density plots
       dplyr::mutate(name= factor(name, levels=c('trans_cis_ratio_esc', 'trans_cis_ratio_olig')))
     melting_genes_tohighlight <- melting_genes %>% # slect genes that shall be labeled and indicated with dark grey lines
@@ -39,10 +40,11 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
       dplyr::mutate(name = case_when(name == 'trans_cis_ratio_esc' ~ 'ESC', name == 'trans_cis_ratio_olig' ~ 'OLG'),
                     name = factor(name, levels=c('ESC', 'OLG')))
     median_lines <- tibble(celltype=c('ESC', 'OLG'), median =c(median(melting_genes$trans_cis_ratio_esc), median(melting_genes$trans_cis_ratio_olig)),
-                           color = c('darkorange', '#800080'))
+                           color = c('darkorange', color_brain))
   }  
   if(celltype == 'DN_R1'){
-    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_DN_R1 == TRUE) # select all melting genes
+    color_brain <- if_else(isTRUE(melting_status),'#259A37', 'grey70')
+    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_DN_R1 == melting_status) # select all melting genes
     melting_genes_long <- melting_genes %>% pivot_longer(cols=c(trans_cis_ratio_esc, trans_cis_ratio_dn_R1)) %>%  #for density plots
       dplyr::mutate(name= factor(name, levels=c('trans_cis_ratio_esc', 'trans_cis_ratio_dn_R1')))
     melting_genes_tohighlight <- melting_genes %>% # slect genes that shall be labeled and indicated with dark grey lines
@@ -55,10 +57,11 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
       dplyr::mutate(name = case_when(name == 'trans_cis_ratio_esc' ~ 'ESC', name == 'trans_cis_ratio_dn_R1' ~ 'DN_R1'),
                     name = factor(name, levels=c('ESC', 'DN_R1')))
     median_lines <- tibble(celltype=c('ESC', 'DN_R1'), median =c(median(melting_genes$trans_cis_ratio_esc), median(melting_genes$trans_cis_ratio_dn_R1)),
-                           color = c('darkorange', '#259A37'))
+                           color = c('darkorange', color_brain))
   }
   if(celltype == 'DN_R2'){
-    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_DN_R2 == TRUE) # select all melting genes
+    color_brain <- if_else(isTRUE(melting_status),'#259A37', 'grey70')
+    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_DN_R2 == melting_status) # select all melting genes
     melting_genes_long <- melting_genes %>% pivot_longer(cols=c(trans_cis_ratio_esc, trans_cis_ratio_dn_R2)) %>%  #for density plots
       dplyr::mutate(name= factor(name, levels=c('trans_cis_ratio_esc', 'trans_cis_ratio_dn_R2')))
     melting_genes_tohighlight <- melting_genes %>% # slect genes that shall be labeled and indicated with dark grey lines
@@ -71,10 +74,11 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
       dplyr::mutate(name = case_when(name == 'trans_cis_ratio_esc' ~ 'ESC', name == 'trans_cis_ratio_dn_R2' ~ 'DN_R2'),
                     name = factor(name, levels=c('ESC', 'DN_R2')))
     median_lines <- tibble(celltype=c('ESC', 'DN_R2'), median =c(median(melting_genes$trans_cis_ratio_esc), median(melting_genes$trans_cis_ratio_dn_R2)),
-                           color = c('darkorange', '#259A37'))
+                           color = c('darkorange', color_brain))
   }
   if(celltype == 'PGN_R1'){
-    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_PGN_R1 == TRUE) # select all melting genes
+    color_brain <- if_else(isTRUE(melting_status),'#6367DC', 'grey70')
+    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_PGN_R1 == melting_status) # select all melting genes
     melting_genes_long <- melting_genes %>% pivot_longer(cols=c(trans_cis_ratio_esc, trans_cis_ratio_pgn_R1)) %>%  #for density plots
       dplyr::mutate(name= factor(name, levels=c('trans_cis_ratio_esc', 'trans_cis_ratio_pgn_R1')))
     melting_genes_tohighlight <- melting_genes %>% # slect genes that shall be labeled and indicated with dark grey lines
@@ -87,10 +91,11 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
       dplyr::mutate(name = case_when(name == 'trans_cis_ratio_esc' ~ 'ESC', name == 'trans_cis_ratio_pgn_R1' ~ 'PGN_R1'),
                     name = factor(name, levels=c('ESC', 'PGN_R1')))
     median_lines <- tibble(celltype=c('ESC', 'PGN_R1'), median =c(median(melting_genes$trans_cis_ratio_esc), median(melting_genes$trans_cis_ratio_pgn_R1)),
-                           color = c('darkorange', '#6367DC'))
+                           color = c('darkorange', color_brain))
   }
   if(celltype == 'PGN_R2'){
-    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_PGN_R1 == TRUE) # select all melting genes
+    color_brain <- if_else(isTRUE(melting_status),'#6367DC', 'grey70')
+    melting_genes <- npmi_ratio_longgenes_melting_score %>% dplyr::filter(melting_in_PGN_R1 == melting_status) # select all melting genes
     melting_genes_long <- melting_genes %>% pivot_longer(cols=c(trans_cis_ratio_esc, trans_cis_ratio_pgn_R2)) %>%  #for density plots
       dplyr::mutate(name= factor(name, levels=c('trans_cis_ratio_esc', 'trans_cis_ratio_pgn_R2')))
     melting_genes_tohighlight <- melting_genes %>% # slect genes that shall be labeled and indicated with dark grey lines
@@ -103,7 +108,7 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
       dplyr::mutate(name = case_when(name == 'trans_cis_ratio_esc' ~ 'ESC', name == 'trans_cis_ratio_pgn_R2' ~ 'PGN_R2'),
                     name = factor(name, levels=c('ESC', 'PGN_R2')))
     median_lines <- tibble(celltype=c('ESC', 'PGN_R2'), median =c(median(melting_genes$trans_cis_ratio_esc), median(melting_genes$trans_cis_ratio_pgn_R2)),
-                           color = c('darkorange', '#6367DC'))
+                           color = c('darkorange', color_brain))
   }
   ###PLOTTING:
   a<- ggplot() +
@@ -115,6 +120,7 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
     ylim(c(0,100))+
     ylab('trans-cis ratio [chromosome percentile]')+
     scale_x_discrete(labels=c(median_lines$celltype), expand = c(0.1, 0.1))
+#uncomment for labeling of individual genes. But then the function only works for melting genes  
   #    geom_label_repel(data= melting_genes_tohighlight %>% dplyr::filter(name=='ESC'),aes(x=name, y=value, label=gene_id),  nudge_x = -0.2, segment.size = 0) + 
   #    geom_label_repel(data= melting_genes_tohighlight %>% dplyr::filter(name!='ESC'),aes(x=name, y=value, label=gene_id),  nudge_x = 0.2, segment.size = 0) 
   #a
@@ -132,8 +138,13 @@ plot_transcis <- function(celltype=c('OLG', 'DN_R1', 'DN_R2', 'PGN_R1', 'PGN_R2'
   # ab_comb
   return(ab_comb)
 }  
-plot_transcis('OLG')
-plot_transcis('DN_R1')
-plot_transcis('DN_R2')
-plot_transcis('PGN_R1')
-plot_transcis('PGN_R2')
+plot_transcis(celltype = 'OLG', melting_status = TRUE)
+plot_transcis(celltype = 'OLG', melting_status = FALSE)
+plot_transcis('DN_R1', melting_status = TRUE)
+plot_transcis('DN_R1', melting_status = FALSE)
+plot_transcis('DN_R2', melting_status = TRUE)
+plot_transcis('DN_R2', melting_status = FALSE)
+plot_transcis('PGN_R1', melting_status = TRUE)
+plot_transcis('PGN_R1', melting_status = FALSE)
+plot_transcis('PGN_R2', melting_status = TRUE)
+plot_transcis('PGN_R2', melting_status = FALSE)
