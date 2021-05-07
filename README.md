@@ -1,6 +1,6 @@
 # GAM TRANS-CIS RATIOS
 
-_Calculate trans-cis NPMI ratios from GAM data_
+_Calculation of trans-cis NPMI ratios from GAM data_
 
 [![DOI:10.1101/2020.04.02.020990](http://img.shields.io/badge/DOI-10.1101/2020.04.02.020990-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v1)  
 
