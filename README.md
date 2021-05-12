@@ -2,7 +2,7 @@
 
 _Calculation of trans-cis NPMI ratios from GAM data_
 
-[![DOI:10.1101/2020.04.02.020990](http://img.shields.io/badge/DOI-10.1101/2020.04.02.020990-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v2)  
+[![DOI:10.1101/2020.04.02.020990](http://img.shields.io/badge/DOI-10.1101/2020.04.02.020990-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v3)  
 
 <img src="./data/trans_cis_schematic.png" width="900">
 
@@ -30,6 +30,6 @@ Please get in touch for questions and issues: dominik.szabo at mdc-berlin.de
 
 Please check our preprint:  
 __Winick-Ng, W., Kukalev, A., Harabula, I., Zea Redondo, L., Szabo, D. et al.:  
-[Cell-type specialization in the brain is encoded by specific long-range chromatin topologies](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v2)__
+[Cell-type specialization in the brain is encoded by specific long-range chromatin topologies](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v3)__
 
 
