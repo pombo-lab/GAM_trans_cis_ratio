@@ -11,7 +11,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 #for command line R:
 #setwd(getSrcDirectory()[1])
 
-
+#load data
 melting_scores <- read_tsv('../data/master_table_long_genes_withClustIdent.tsv.gz') %>% 
   dplyr::mutate(group_vta_R1 = case_when(meltingScore_DN_R1 > 5 & nad_assoc50 == TRUE ~ 'melt+nad',
                                          meltingScore_DN_R1 > 5 & nad_assoc50 == FALSE ~ 'melt+NOnad',
@@ -34,6 +34,7 @@ melting_scores <- read_tsv('../data/master_table_long_genes_withClustIdent.tsv.g
                                       meltingScore_OLGs <= 5 & nad_assoc50 == TRUE ~ 'NOmelt+nad',
                                       meltingScore_OLGs <= 5 & nad_assoc50 == FALSE ~ 'NOmelt+NOnad'))
 
+#Figure ED 6i: correlation of trans cis ratios in replicates
 melting_scores %>% ggplot()+
   geom_point(aes(x=median_of_mean_trans_cis_pgn_R1, y=median_of_mean_trans_cis_pgn_R2))+
   geom_smooth(aes(x=median_of_mean_trans_cis_pgn_R1, y=median_of_mean_trans_cis_pgn_R2),method = 'lm')
@@ -44,6 +45,7 @@ melting_scores %>% ggplot()+
   geom_smooth(aes(x=median_of_mean_trans_cis_dn_R1, y=median_of_mean_trans_cis_dn_R2),method = 'lm')
 cor.test(melting_scores$median_of_mean_trans_cis_dn_R1, melting_scores$median_of_mean_trans_cis_dn_R2)
 
+#Figure ED6 l+m: violin plots of trans-cis ratio and NAD association
 plot_violin <- function(celltype= c('oligo', 'vtaR1', 'vtaR2', 'ca1R1', 'ca1R2')){
   if(celltype == 'oligo'){
     color = '#800080'
