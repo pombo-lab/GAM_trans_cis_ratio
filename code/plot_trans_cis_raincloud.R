@@ -148,3 +148,4 @@ plot_transcis('PGN_R1', melting_status = TRUE)
 plot_transcis('PGN_R1', melting_status = FALSE)
 plot_transcis('PGN_R2', melting_status = TRUE)
 plot_transcis('PGN_R2', melting_status = FALSE)
+
