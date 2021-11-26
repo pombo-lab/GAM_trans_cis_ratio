@@ -2,7 +2,7 @@
 
 _Calculation of trans-cis NPMI ratios from GAM data_
 
-[![DOI:10.1101/2020.04.02.020990](http://img.shields.io/badge/DOI-10.1101/2020.04.02.020990-B31B1B.svg)](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v3)  
+[![DOI:10.1038/s41586-021-04081-2](https://zenodo.org/badge/DOI/110.1038/s41586-021-04081-2.svg)](https://www.nature.com/articles/s41586-021-04081-2)
 
 <img src="./data/trans_cis_schematic.png" width="900">
 
@@ -28,8 +28,8 @@ Developed and tested with R version 3.6.0 Planting of a Tree
 Please get in touch for questions and issues: dominik.szabo at mdc-berlin.de
 
 
-Please check our preprint:  
+Please check our manuscript:  
 __Winick-Ng, W., Kukalev, A., Harabula, I., Zea Redondo, L., Szabo, D. et al.:  
-[Cell-type specialization in the brain is encoded by specific long-range chromatin topologies](https://www.biorxiv.org/content/10.1101/2020.04.02.020990v3)__
+[Cell-type specialization is encoded by specific chromatin topologies](https://www.nature.com/articles/s41586-021-04081-2)__
 
 
